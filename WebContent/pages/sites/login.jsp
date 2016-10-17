@@ -5,13 +5,14 @@
 
   <jsp:include page="../include/header.jsp"><jsp:param name="header" value="prerna" /></jsp:include>
 
+	
     <style>
       .form-container{
         margin-top: 30px;
       }
     </style>
 
-	<script src="formValidator.js"></script>
+	
 	
     <!-- Main Content -->
     <div class="contentContainer container-fluid">
@@ -47,7 +48,7 @@
 
     </div>
 
-
+	<script src="${pageContext.request.contextPath}/js/formValidator.js"></script>
     <!-- FOOTER -->
   <jsp:include page="../include/footer.jsp"><jsp:param name="footer" value="prerna" /></jsp:include>
 

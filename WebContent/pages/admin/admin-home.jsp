@@ -8,19 +8,7 @@
     </jsp:include>
 
 
-	<script>
-      // thay doi noi dung cac tab
-      $(document).ready(function(){
-        $(".nav-tabs a").click(function(){
-            $(this).tab('show');
-        });
-      });
-      $(".list-group a").on("click",function(){
-          //console.log($(this).siblings());
-          $(this).siblings().removeClass('current');
-          $(this).addClass('current');
-      });
-    </script>
+	
 
     <!-- Main Content -->
     <div class="container-fluid">
@@ -388,6 +376,20 @@
       </div> <!-- /.row -->
 
     </div> <!-- /.container-fluid -->
+    
+    <script>
+      // thay doi noi dung cac tab
+      $(document).ready(function(){
+        $(".nav-tabs a").click(function(){
+            $(this).tab('show');
+        });
+      });
+      $(".list-group a").on("click",function(){
+          //console.log($(this).siblings());
+          $(this).siblings().removeClass('current');
+          $(this).addClass('current');
+      });
+    </script>
 
     <!-- FOOTER -->
     <jsp:include page="../include/footer.jsp"><jsp:param name="footer" value="prerna" />
