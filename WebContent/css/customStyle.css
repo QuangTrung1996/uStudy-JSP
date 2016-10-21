@@ -44,6 +44,11 @@ nav.navbar {
   padding-right: 0px;
 }
 
+
+label.error {
+	color:red;	
+}
+
 /*
 ** index.html
 */

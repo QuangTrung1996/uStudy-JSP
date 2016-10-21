@@ -13,8 +13,9 @@
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
   <link rel="stylesheet" type="text/css" href="${pageContext.request.contextPath}/css/customStyle.css">
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/jquery-3.1.1.min.js"></script>
   <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+  <script src="${pageContext.request.contextPath}/js/jquery.validate.min.js"></script>
   
 </head>
 

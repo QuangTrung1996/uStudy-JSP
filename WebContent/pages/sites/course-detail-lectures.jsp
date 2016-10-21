@@ -5,14 +5,7 @@
 
   <jsp:include page="../include/header.jsp"><jsp:param name="header" value="prerna" /></jsp:include>
 
-  <script>
-  // thay doi noi dung cac tab
-  $(document).ready(function(){
-    $(".nav-tabs a").click(function(){
-        $(this).tab('show');
-      });
-    });
-  </script>
+  
 
   <!-- Main Content -->
   <div class="contentContainer container-fluid">
@@ -101,7 +94,14 @@
 
   </div><!-- /.container-fluid -->
 
-
+	<script>
+  // thay doi noi dung cac tab
+  $(document).ready(function(){
+    $(".nav-tabs a").click(function(){
+        $(this).tab('show');
+      });
+    });
+  </script>
     <!-- FOOTER -->
   <jsp:include page="../include/footer.jsp"><jsp:param name="footer" value="prerna" /></jsp:include>
   
