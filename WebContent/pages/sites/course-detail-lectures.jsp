@@ -4,9 +4,9 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
   <jsp:include page="../include/header.jsp"><jsp:param name="header" value="prerna" /></jsp:include>
-  <link type="text/css" href="../../css/editor.css" rel="stylesheet"/>
-  <link type="text/css" href="../../css/font-awesome.css" rel="stylesheet"/>
-  <script src="../../js/editor.js"></script>
+  <link type="text/css" href="${pageContext.request.contextPath}/css/editor.css" rel="stylesheet"/>
+  <link type="text/css" href="${pageContext.request.contextPath}/css/font-awesome.css" rel="stylesheet"/>
+  <script src="${pageContext.request.contextPath}/js/editor.js"></script>
 
   <!-- Main Content -->
   <div class="contentContainer container-fluid">
