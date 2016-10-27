@@ -17,6 +17,12 @@
   		</div>
 	</div>
 </footer>
-
+<!-- 
+<script>
+$(".btn").addClass("btn-raised");
+$(".radio").addClass("radio-primary");
+$.material.init();
+</script>
+<!-- -->
 </body>
 </html>
