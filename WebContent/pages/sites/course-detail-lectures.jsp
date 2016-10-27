@@ -4,9 +4,12 @@
 <%@ taglib prefix="sql" uri="http://java.sun.com/jsp/jstl/sql"%>
 
   <jsp:include page="../include/header.jsp"><jsp:param name="header" value="prerna" /></jsp:include>
+  <!--
   <link type="text/css" href="${pageContext.request.contextPath}/css/editor.css" rel="stylesheet"/>
   <link type="text/css" href="${pageContext.request.contextPath}/css/font-awesome.css" rel="stylesheet"/>
   <script src="${pageContext.request.contextPath}/js/editor.js"></script>
+  -->
+  <script src="${pageContext.request.contextPath}/ckeditor/ckeditor.js"></script>
 
   <!-- Main Content -->
   <div class="contentContainer container-fluid">
@@ -88,13 +91,17 @@
                 <div id="lessonContainer" class="row" style="margin:15px 0px;">
                 	<!-- Youtube embed -->
 	                <div style="height:400px;background-color:#c0c0c0"><iframe height="400px" width="100%" src="https://www.youtube.com/embed/z-OxzIC6pic" frameborder="0" allowfullscreen></iframe></div>
-	                <div class="lesson-text">
+	                <div id="lesson-text">
 	                  <h3>Nội dung bài học</h3>
 	                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 	                  <p>...</p>
 	                </div>
 	             </div>
-	             <div id="textEditor" class="hidden"></div>
+	             
+	             <form id="textEditor" class="hidden">
+		            <textarea name="ckeditor" id="ckeditor" rows="10" cols="80">
+		            </textarea>
+		        </form>
               </div>
             </div>
           </div>
@@ -168,21 +175,14 @@
 
   </div><!-- /.container-fluid -->
 
+<script src="${pageContext.request.contextPath}/js/ckeditorInit.js"></script>
 	<script>
-	
-	
   // thay doi noi dung cac tab
   $(document).ready(function(){
     $(".nav-tabs a").click(function(){
         $(this).tab('show');
       });
-    var editor = $("#textEditor").Editor();
-    $(".Editor-container").addClass("hidden");
-    /*
-    editor('createMenuItem', {"text": "TouchGlasses", //Text replaces icon if its not available
-        "icon":"fa fa-glass", //This is a Font-Awesome Icon 
-        "tooltip": "Touch Glasses"
-    });*/
+
     function strip(html)
     {
        var tmp = document.createElement("DIV");
@@ -191,8 +191,8 @@
     }
     
     $("#editLesson").click(function (){
-    	$("#textEditor").Editor("setText", strip(document.getElementById("lessonContainer").innerHTML));
-    	$(".Editor-container").removeClass("hidden");
+    	InsertHTML();
+    	$("#textEditor").removeClass("hidden");
     	$("#lessonContainer").addClass("hidden");
     	$("#editLesson").addClass("hidden");
     	$("#saveLesson").removeClass("hidden");
@@ -200,9 +200,8 @@
     });
     
     $("#saveLesson").click(function (){
-    	document.getElementById("lessonContainer").innerHTML = $("#textEditor").Editor("getText");
-    	$("#textEditor").Editor("setText","");
-    	$(".Editor-container").addClass("hidden");
+    	GetContentsToDisplay();
+    	$("#textEditor").addClass("hidden");
     	$("#lessonContainer").removeClass("hidden");
     	$("#editLesson").removeClass("hidden");
     	$("#saveLesson").addClass("hidden");
@@ -211,9 +210,8 @@
     });
     
     $("#discardLesson").click(function (){
-    	$("#textEditor").Editor("setText", strip(document.getElementById("lessonContainer").innerHTML));
-    	$("#textEditor").Editor("setText","");
-    	$(".Editor-container").addClass("hidden");
+    	ClearInput();
+    	$("#textEditor").addClass("hidden");
     	$("#lessonContainer").removeClass("hidden");
     	$("#editLesson").removeClass("hidden");
     	$("#saveLesson").addClass("hidden");
